@@ -1,31 +1,60 @@
-﻿<!-- Services Section -->
-    <section id="profile" class="bg-light-gray">
-        <div class="container">
-		<div class="row">
-      <div class="col-md-5 text-center">
-          <img class="img-responsive" src="/img/Neftali_Yagua.jpg" alt="Neftalí Yagua">
-      </div>
-      <div class="col-md-7">
-        <h3 class="name">Neftalí Yagua</h3>
-        <h4 class="jobTitle">Ingeniero de Software</h4>
-        <hr>
-	<p>Mi nombre es Neftalí Yagua, soy Presidente, Director General y Fundador de Coderic, S.A. Soy hijo de Omar Yagua y Yury Linares
-Nací el 7 de diciembre de 1984 en el Hospital Central "Plácido Daniel Rodriguez Rivero" en la ciudad de San Felipe Estado Yaracuy</p>
-	<p>Soy un hombre de buen temple, de conducta irreprensible y de integridad comprobable; reconocido en más de una comunidad.<p>
-	<p>Comprometido con la democracia participativa.</p>
-	      <p><strong><abbr title="Registro Nacional de Oficios del Libro">RNOL</abbr>:</strong> RNOL-0659</p>
-        <!--img src="img/signature.png" data-at2x="img/signature@2x.png" alt="signature" class="signature"--> 
-
-        <!--social-->
-
-				<ul class="list-inline social-buttons text-center">
-					{% for network in site.social %}
-					<li><a href="{{ network.url }}" title="{{ network.title }}"{% if network.download %} download{% endif %}><i class="{{ network.fa-icon }}"></i></a></li>
-					{% endfor %}
-				</ul>
-        <!--social end--> 
-        
-      </div>
-    </div>
+<section id="profile" class="bg-light-gray">
+    <div class="container">
+        <div class="row profile-card">
+            <div class="col-md-5">
+                <figure class="profile-media">
+                    <img class="img-responsive" src="/img/Neftali_Yagua.jpg" alt="Neftalí Yagua" loading="lazy">
+                    <figcaption>San Felipe, Yaracuy · 7 de diciembre de 1984</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-7">
+                <header class="profile-header">
+                    <p class="profile-eyebrow">Fundador de Coderic · Mentor de equipos · Pastor y docente</p>
+                    <h3 class="name">Neftalí Yagua</h3>
+                    <p class="jobTitle">Ingeniero de Software &amp; Estratega tecnológico</p>
+                </header>
+                <p>
+                    Mi nombre es Neftalí Yagua, Presidente, Director General y Fundador de Coderic, S.A. Hijo de Omar Yagua y
+                    Yury Linares, nací en el Hospital Central “Plácido Daniel Rodríguez Rivero” (San Felipe, estado Yaracuy) y
+                    desde entonces he acompañado a organizaciones públicas, empresas privadas y movimientos ciudadanos en la
+                    construcción de soluciones digitales confiables.
+                </p>
+                <p>
+                    Me defino como un profesional de temple sereno, con conducta comprobable y vocación de servicio
+                    comunitario. Impulso la democracia participativa y los ecosistemas de software libre desde colectivos como
+                    UbuntuVE, Democracia en Red, Partido de la Red y Partido Pirata de Venezuela.
+                </p>
+                <ul class="profile-highlights">
+                    <li><strong>Trayectoria:</strong> Más de dos décadas liderando productos como Prodaric Framework, TaxiNode y Portal Iglesia Cristiana.</li>
+                    <li><strong>Publicaciones:</strong> Autor de «El Grano de Mostaza» y «La Espada de la Justicia» (RNOL-0659).</li>
+                    <li><strong>Reconocimientos:</strong> Orden al Mérito en el Trabajo (2009), Magna Cum Laude (2004) y distinciones al mérito e innovación.</li>
+                </ul>
+                <dl class="profile-meta">
+                    <dt>Residencia</dt>
+                    <dd>Colombia · Venezuela</dd>
+                    <dt>Teléfono</dt>
+                    <dd><a href="tel:+573054552108">+57 (305) 455 2108</a></dd>
+                    <dt>Correo</dt>
+                    <dd><a href="mailto:despacho@neftaliyagua.com">despacho@neftaliyagua.com</a></dd>
+                    <dt><abbr title="Registro Nacional de Oficios del Libro">RNOL</abbr></dt>
+                    <dd>RNOL-0659</dd>
+                </dl>
+                <div class="cta-group">
+                    <a class="btn btn-xl" href="https://www.freelancer.com.co/hireme/neftaliyagua" target="_blank" rel="noopener">
+                        Contratarme
+                    </a>
+                    <a class="btn btn-outline" href="#contact">Coordinar llamada</a>
+                </div>
+                <ul class="list-inline social-buttons profile-social">
+                    {% for network in site.social %}
+                    <li>
+                        <a href="{{ network.url }}" title="{{ network.title }}"{% if network.download %} download{% endif %}>
+                            <i class="{{ network.fa-icon }}"></i>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
