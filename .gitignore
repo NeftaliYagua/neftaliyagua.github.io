@@ -40,3 +40,5 @@ Icon
 .buildpath
 .jekyll-cache
 .jekyll-metadata
+.bundle
+vendor/
