@@ -40,3 +40,9 @@ Icon
 .buildpath
 .jekyll-cache
 .jekyll-metadata
+
+# Ignore bundler and vendored gems
+/.bundle
+/.bundle/
+vendor/
+vendor/bundle/
