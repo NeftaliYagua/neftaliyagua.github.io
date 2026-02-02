@@ -11,7 +11,13 @@
         js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId=467818103369447";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));</script>
-      
-    {{ content }} 
+
+      <div id="page" class="site">
+        <a class="skip-link" href="#main">Saltar al contenido</a>
+        <main id="main" class="site-main" role="main">
+          {{ content }}
+        </main>
+      </div>
+
     </body>
 </html>
