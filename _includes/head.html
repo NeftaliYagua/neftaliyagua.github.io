@@ -15,7 +15,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="{{ site.description }}">
+    <meta name="description" content="{{ page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:description" content="{{ page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 200 }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <meta property="og:image" content="{{ page.image | default: site.image | prepend: site.url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@NeftaliYagua">
     <meta name="google-adsense-account" content="ca-pub-6690628925445882">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link href="https://neftaliyagua.com" rel="publisher" />
@@ -36,7 +43,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <link rel="canonical" href="https://neftaliyagua.com/" />
+    <!-- canonical for homepage removed (dynamic canonical above handles pages) -->
     <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link rel="stylesheet" href="{{ "/style.css" | prepend: site.baseurl }}">
     <!-- Custom Fonts -->
@@ -54,47 +61,44 @@
     <![endif]-->
 <!--script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script-->
 
-<script type='application/ld+json'> 
+<script type='application/ld+json'>
 {
-  "@context": "http://www.schema.org",
-  "@type": "person",
-  "name": "Neftalí Yagua",
-  "jobTitle": "Ingeniero de Software",
-  "honorificPrefix": "Profesor",
-  "url": "https://neftaliyagua.com",
-  "email": "mailto:despacho@neftaliyagua.com",
-  "telephone": "+573132389671",
-  "birthDate": "1984-12-07",
-  "birthPlace": "San Felipe, Yaracuy, VE",
-  "nationality": "Venezolano",
-  "taxID": "V-17.699.096",
-  "netWorth": "18700",
-  "isicV4": "5820",
-  "naics": "511210",
-  "gender": "male",
-  "image": "https://neftaliyagua.com/img/Neftali_Yagua.jpg",
-  "memberOf": [ "UbuntuVE",
-      "FliSOLVE",
-      "Partido de la red",
-      "Democracia en red",
-      "Partido Pirata de Venezuela",
-      "Democracia digital",
-      "Unanimes"],
-  "awards": [ "Imposición de la Condecoración “Orden al Mérito en el Trabajo” en conmemoración al Día del Trabajador, Otorgado por el Presidende Hugo Rafael Chavez Frías (finado) en la Sala Ríos Reyna del Teatro Teresa Carreño, Caracas, Viernes, 30 de abril de 2009, Orden Pedro Pascual Abarca, Tercera Clase",
-      "Reconocimiento Ardua constancia y trabajo (2009), Iglesia Misión Cristiana La Bendición del Señor (Valencia, Carabobo), Otorgado por el Director General y Pastor Principal Francisco Silva",
-      "Mención Honorifica MAGNA CUM LAUDE (2004), Instituto Universitario de Tecnología Antonio José de Sucre (San Felipe, Yaracuy). Otorgado en el Teatro Yuruby por el Director Nacional y Propietario del Complejo Educativo Antonio José de Sucre, Dr. Raúl Quero Silva (finado)",
-      "Honor al Mérito por Pro-actividad Desarrollo e innovación (1998), Centro de Informática y Estudios Superiores (CIES) (San Felipe, Yaracuy), Otorgado en la Curia Diocesana por el Gobernador de Yaracuy Dr. Eduardo Lapi García"]
-  },
-  "alumniOf": "Instituto Universitario de Tecnología Antonio José de Sucre",
-  "brand" : [ "Neftalí Yagua", "Coderic"],
-  "sameAs" : [ "http://es.gravatar.com/neftaliyagua",
-      "https://twitter.com/NeftaliYagua",
-      "https://twitter.com/NeftaliNoeYagua",
-      "https://www.facebook.com/NeftaliYagua",
-      "https://www.facebook.com/NeftaliNoeYagua",
-      "https://www.linkedin.com/in/neftaliyagua",
-      "https://www.instagram.com/NeftaliYagua"]
+    "@context": "http://www.schema.org",
+    "@type": "Person",
+    "name": "Neftalí Yagua",
+    "jobTitle": "Ingeniero de Software",
+    "honorificPrefix": "Profesor",
+    "url": "https://neftaliyagua.com",
+    "email": "mailto:despacho@neftaliyagua.com",
+    "telephone": "+573132389671",
+    "birthDate": "1984-12-07",
+    "birthPlace": "San Felipe, Yaracuy, VE",
+    "nationality": "Venezolano",
+    "taxID": "V-17.699.096",
+    "netWorth": "18700",
+    "isicV4": "5820",
+    "naics": "511210",
+    "gender": "male",
+    "image": "https://neftaliyagua.com/img/Neftali_Yagua.jpg",
+    "memberOf": ["UbuntuVE", "FliSOLVE", "Partido de la red", "Democracia en red", "Partido Pirata de Venezuela", "Democracia digital", "Unanimes"],
+    "awards": [
+        "Imposición de la Condecoración 'Orden al Mérito en el Trabajo' en conmemoración al Día del Trabajador, otorgado por el Presidente Hugo Rafael Chávez Frías en la Sala Ríos Reyna del Teatro Teresa Carreño, Caracas, 30 de abril de 2009.",
+        "Reconocimiento 'Ardua constancia y trabajo' (2009), Iglesia Misión Cristiana La Bendición del Señor (Valencia, Carabobo), otorgado por el Pastor Francisco Silva.",
+        "Mención Honorífica MAGNA CUM LAUDE (2004), Instituto Universitario de Tecnología Antonio José de Sucre (San Felipe, Yaracuy).",
+        "Honor al Mérito por Pro-actividad, Desarrollo e Innovación (1998), Centro de Informática y Estudios Superiores (CIES) (San Felipe, Yaracuy)."
+    ],
+    "alumniOf": "Instituto Universitario de Tecnología Antonio José de Sucre",
+    "brand": ["Neftalí Yagua", "Coderic"],
+    "sameAs": [
+        "http://es.gravatar.com/neftaliyagua",
+        "https://twitter.com/NeftaliYagua",
+        "https://twitter.com/NeftaliNoeYagua",
+        "https://www.facebook.com/NeftaliYagua",
+        "https://www.facebook.com/NeftaliNoeYagua",
+        "https://www.linkedin.com/in/neftaliyagua",
+        "https://www.instagram.com/NeftaliYagua"
+    ]
 }
- </script>
+</script>
     
 </head>
